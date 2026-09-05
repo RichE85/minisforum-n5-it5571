@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
   <!ENTITY name      "minisforum-n5-it5571">
   <!ENTITY author    "ltdstudio">
-  <!ENTITY version   "0.2.0">
+  <!ENTITY version   "0.2.1">
   <!ENTITY repo      "https://github.com/ltdstudio/minisforum-n5-it5571">
   <!ENTITY pluginURL "&repo;/raw/main/minisforum-n5-it5571.plg">
   <!ENTITY support   "&repo;/issues">
@@ -31,6 +31,14 @@
 
   <CHANGES>
 ## &version;
+- Fix WebGUI CSS leaking into the surrounding Unraid Plugins page
+- Scope every page style to the plugin container and remove the standalone
+  HTML document wrapper
+- Follow Unraid theme variables instead of the client operating system's
+  prefers-color-scheme setting
+- No kernel driver or PWM/temperature behavior changes in this release
+
+## 0.2.0
 - Add experimental N5 Pro / F8NAA and N5 Air / F8NAB DMI profiles
 - Experimental profiles start read-only; PWM writes require explicit
   experimental_write=1 opt-in
@@ -165,7 +173,7 @@ PLUGIN="&name;"
 
 echo "--- Removing ${PLUGIN} ---"
 
-# Unload first: v0.2.0 restores only channels it actually touched.
+# Unload first: the driver restores only channels it actually touched.
 if ! rmmod minisforum_n5_it5571 2>/dev/null; then
   echo "WARNING: normal unload failed; attempting emergency EC automatic restore."
   if [ -x /usr/local/emhttp/plugins/${PLUGIN}/scripts/restore-bios.sh ]; then

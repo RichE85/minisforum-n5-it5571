@@ -10,7 +10,7 @@
 set -euo pipefail
 
 PLUGIN="minisforum-n5-it5571"
-VERSION="0.2.0"
+VERSION="0.2.1"
 KVER="${1:?KVER required}"
 KO="${2:?path to .ko required}"
 OUTDIR="${3:-$(pwd)}"

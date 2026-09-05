@@ -59,64 +59,49 @@ if (isset($_GET['format']) && $_GET['format'] === 'json') {
 $data = sensor_data();
 $loaded = $data['loaded'];
 ?>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
 <style>
-:root {
-  --pg-bg: var(--body-bg, #ffffff);
-  --pg-fg: var(--font-color, #1d1b1b);
-  --pg-muted: var(--muted-color, #6b7280);
-  --pg-card-bg: var(--card-bg, #f3f4f6);
-  --pg-border: var(--card-border, #e5e7eb);
+#minisforum-n5-it5571-page {
+  --pg-bg: var(--background-color, #ffffff);
+  --pg-fg: var(--text-color, #1d1b1b);
+  --pg-muted: var(--alt-text-color, #6b7280);
+  --pg-card-bg: var(--table-background-color, #f3f4f6);
+  --pg-border: var(--border-color, #e5e7eb);
   --pg-accent: var(--blue-500, #3b82f6);
   --pg-hot: var(--red-500, #ef4444);
   --pg-ok: var(--green-500, #22c55e);
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --pg-bg: #1a2233;
-    --pg-fg: #e8edf5;
-    --pg-muted: #8fa0bd;
-    --pg-card-bg: #222c42;
-    --pg-border: #31405f;
-    --pg-accent: #7dd3fc;
-    --pg-hot: #f87171;
-    --pg-ok: #4ade80;
-  }
-}
-* { box-sizing: border-box; }
-body { margin: 0; padding: 24px; background: var(--pg-bg); color: var(--pg-fg);
+#minisforum-n5-it5571-page,
+#minisforum-n5-it5571-page * { box-sizing: border-box; }
+#minisforum-n5-it5571-page { margin: 0; padding: 24px; background: var(--pg-bg); color: var(--pg-fg);
   font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif; }
-h1 { font-size: 20px; margin: 0 0 4px; }
-.sub { color: var(--pg-muted); font-size: 12px; margin-bottom: 20px; }
-.card { background: var(--pg-card-bg); border: 1px solid var(--pg-border); border-radius: 8px;
+#minisforum-n5-it5571-page h1 { font-size: 20px; margin: 0 0 4px; }
+#minisforum-n5-it5571-page .sub { color: var(--pg-muted); font-size: 12px; margin-bottom: 20px; }
+#minisforum-n5-it5571-page .card { background: var(--pg-card-bg); border: 1px solid var(--pg-border); border-radius: 8px;
   padding: 16px 18px; margin-bottom: 16px; }
-.card h2 { font-size: 14px; margin: 0 0 12px; color: var(--pg-accent); letter-spacing: .5px; }
-table { width: 100%; border-collapse: collapse; }
-th, td { text-align: left; padding: 7px 10px; font-size: 13px; border-bottom: 1px solid var(--pg-border); }
-th { color: var(--pg-muted); font-weight: 600; font-size: 12px; }
-td.num { font-family: Menlo, monospace; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
-.badge.bios { background: #1d4ed8; color: #bfdbfe; }
-.badge.manual { background: #b45309; color: #fde68a; }
-.badge.ok { color: var(--pg-ok); }
-.badge.warn { color: var(--pg-hot); }
-.note { font-size: 12px; color: var(--pg-muted); }
-.warnbox { background: color-mix(in srgb, var(--pg-hot) 12%, var(--pg-bg));
+#minisforum-n5-it5571-page .card h2 { font-size: 14px; margin: 0 0 12px; color: var(--pg-accent); letter-spacing: .5px; }
+#minisforum-n5-it5571-page table { width: 100%; border-collapse: collapse; }
+#minisforum-n5-it5571-page th,
+#minisforum-n5-it5571-page td { text-align: left; padding: 7px 10px; font-size: 13px; border-bottom: 1px solid var(--pg-border); }
+#minisforum-n5-it5571-page th { color: var(--pg-muted); font-weight: 600; font-size: 12px; }
+#minisforum-n5-it5571-page td.num { font-family: Menlo, monospace; }
+#minisforum-n5-it5571-page .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+#minisforum-n5-it5571-page .badge.bios { background: #1d4ed8; color: #bfdbfe; }
+#minisforum-n5-it5571-page .badge.manual { background: #b45309; color: #fde68a; }
+#minisforum-n5-it5571-page .badge.ok { color: var(--pg-ok); }
+#minisforum-n5-it5571-page .badge.warn { color: var(--pg-hot); }
+#minisforum-n5-it5571-page .note { font-size: 12px; color: var(--pg-muted); }
+#minisforum-n5-it5571-page .warnbox { background: color-mix(in srgb, var(--pg-hot) 12%, var(--pg-bg));
   border: 1px solid var(--pg-hot); border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;
   color: var(--pg-hot); font-size: 13px; }
-tt { background: var(--pg-card-bg); padding: 1px 5px; border-radius: 4px; }
-.lang { color: var(--pg-muted); font-size: 11px; font-weight: 400; }
-.footer { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--pg-border);
+#minisforum-n5-it5571-page tt { background: var(--pg-card-bg); padding: 1px 5px; border-radius: 4px; }
+#minisforum-n5-it5571-page .lang { color: var(--pg-muted); font-size: 11px; font-weight: 400; }
+#minisforum-n5-it5571-page .footer { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--pg-border);
   font-size: 12px; color: var(--pg-muted); }
-.footer a { color: var(--pg-accent); text-decoration: none; }
-.footer a:hover { text-decoration: underline; }
-.footer b { color: var(--pg-fg); }
+#minisforum-n5-it5571-page .footer a { color: var(--pg-accent); text-decoration: none; }
+#minisforum-n5-it5571-page .footer a:hover { text-decoration: underline; }
+#minisforum-n5-it5571-page .footer b { color: var(--pg-fg); }
 </style>
-</head>
-<body>
+<div id="minisforum-n5-it5571-page">
 <h1>Minisforum N5 EC / IT5571 Driver</h1>
 <div class="sub">
   内核模块 Kernel module: <b>minisforum_n5_it5571</b> &nbsp;·&nbsp;
@@ -180,7 +165,7 @@ tt { background: var(--pg-card-bg); padding: 1px 5px; border-radius: 4px; }
   <a href="https://github.com/ltdstudio/minisforum-n5-it5571" target="_blank" rel="noopener">GitHub</a>
   &nbsp;·&nbsp; <a href="https://github.com/ltdstudio/minisforum-n5-it5571/issues" target="_blank" rel="noopener">提交 Bug 报告 Report a bug</a>
   &nbsp;·&nbsp; Powered by <b>ltdstudio</b>
-  &nbsp;·&nbsp; v0.2.0
+  &nbsp;·&nbsp; v0.2.1
 </div>
 
 <script>
@@ -216,5 +201,4 @@ tt { background: var(--pg-card-bg); padding: 1px 5px; border-radius: 4px; }
   setTimeout(refresh, 500); // quick first poll
 })();
 </script>
-</body>
-</html>
+</div>
