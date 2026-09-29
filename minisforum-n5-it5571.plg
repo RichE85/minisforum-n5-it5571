@@ -3,7 +3,7 @@
   <!ENTITY name      "minisforum-n5-it5571">
   <!ENTITY author    "ltdstudio">
   <!ENTITY version   "0.2.1">
-  <!ENTITY repo      "https://github.com/ltdstudio/minisforum-n5-it5571">
+  <!ENTITY repo      "https://github.com/riche85/minisforum-n5-it5571">
   <!ENTITY pluginURL "&repo;/raw/main/minisforum-n5-it5571.plg">
   <!ENTITY support   "&repo;/issues">
   <!ENTITY launch    "Utilities/minisforum-n5-it5571">
