@@ -2,17 +2,17 @@
 set -eu
 
 apk add --no-cache \
-  bash bc binutils bison build-base elfutils-dev flex openssl-dev perl wget xz
+    bash bc binutils bison build-base elfutils-dev flex openssl-dev perl wget xz
 
 cd /work
-if [ ! -f linux-6.18.38.tar.xz ]; then
-  wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.38.tar.xz
+if [ ! -f linux-6.18.52.tar.xz ]; then
+    wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.52.tar.xz
 fi
-if [ ! -d linux-6.18.38 ]; then
-  tar -xf linux-6.18.38.tar.xz
+if [ ! -d linux-6.18.52 ]; then
+    tar -xf linux-6.18.52.tar.xz
 fi
 
-cd /work/linux-6.18.38
+cd /work/linux-6.18.52
 cp /work/unraid.config .config
 make olddefconfig
 make prepare modules_prepare
