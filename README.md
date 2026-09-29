@@ -122,7 +122,7 @@ Minisforum N5 EC / IT5571 Driver
 Open **Plugins → Install Plugin** and enter:
 
 ```text
-https://raw.githubusercontent.com/ltdstudio/minisforum-n5-it5571/main/minisforum-n5-it5571.plg
+https://raw.githubusercontent.com/riche85/minisforum-n5-it5571/main/minisforum-n5-it5571.plg
 ```
 
 The maintainer must publish a release asset for each supported Unraid kernel.
