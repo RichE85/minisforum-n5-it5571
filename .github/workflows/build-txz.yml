@@ -1,0 +1,41 @@
+name: Build Unraid Package
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies and build
+        run: |
+          apk add --no-cache bash bc binutils bison build-base elfutils-dev flex openssl-dev perl wget xz tar kmod
+          mkdir -p /work
+          cd /work
+          wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.52.tar.xz
+          tar -xf linux-6.18.52.tar.xz
+          cd linux-6.18.52
+          cp $GITHUB_WORKSPACE/unraid.config .config
+          make olddefconfig
+          make prepare modules_prepare
+          make M=$GITHUB_WORKSPACE/src modules
+          
+          mkdir -p /tmp/pkg/usr/local/emhttp/plugins/minisforum-n5-it5571
+          mkdir -p /tmp/pkg/lib/modules/6.18.52-Unraid/extra
+          cp $GITHUB_WORKSPACE/src/minisforum_n5_it5571.ko /tmp/pkg/lib/modules/6.18.52-Unraid/extra/
+          cd /tmp/pkg
+          tar -cvJf $GITHUB_WORKSPACE/minisforum-n5-it5571-6.18.52-Unraid.txz .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: minisforum-n5-it5571-6.18.52-Unraid.txz
+          path: minisforum-n5-it5571-6.18.52-Unraid.txz
