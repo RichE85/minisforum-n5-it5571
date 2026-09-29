@@ -3,7 +3,7 @@
  * Minisforum N5 family / ITE IT5571 hwmon driver.
  *
  * Independently explored from F8NAA EC firmware V0.14 and validated on an N5
- * running Unraid 7.3.2 / Linux 6.18.38-Unraid.
+ * running Unraid 7.4.0 / Linux 6.18.52-Unraid.
  *
  * DISCLAIMER: This is an independent community driver, NOT affiliated with or
  * endorsed by Minisforum. It contains unverified factors and is provided
