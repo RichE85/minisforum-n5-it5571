@@ -4,15 +4,15 @@ set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get install -y --no-install-recommends \
-  bc bison flex libelf-dev libssl-dev xz-utils
+    bc bison flex libelf-dev libssl-dev xz-utils
 
 cd /work
-if [ -d linux-6.18.38 ]; then
-  rm -rf -- /work/linux-6.18.38
+if [ -d linux-6.18.52 ]; then
+    rm -rf -- /work/linux-6.18.52
 fi
-tar -xf linux-6.18.38.tar.xz
+tar -xf linux-6.18.52.tar.xz
 
-cd /work/linux-6.18.38
+cd /work/linux-6.18.52
 cp /work/unraid.config .config
 make olddefconfig
 make prepare modules_prepare
